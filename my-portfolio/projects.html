@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inna's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Projects Section -->
+    <section id="projects" class="section" x-data="projectSectionData()">
+      <h2>Projects</h2>
+      <div class="project-cards">
+        <template
+          x-for="[name, details] in Object.entries(projectData)"
+          :key="name"
+        >
+          <div
+            class="project-card"
+            @click="selectedProject = name; initCarousel()"
+          >
+            <h3 x-text="name"></h3>
+            <p x-text="details.description"></p>
+          </div>
+        </template>
+      </div>
+      <!-- Project Details Modal -->
+      <!-- Project Details Modal -->
+      <div x-show="selectedProject && carouselInstance" class="modal">
+        <div class="modal-content">
+          <button @click="selectedProject = null; carouselInstance = null">
+            Close
+          </button>
+          <h3 x-text="selectedProject"></h3>
+          <!-- Carousel -->
+          <div class="carousel">
+            <div class="carousel-wrapper">
+              <template
+                x-if="carouselInstance && carouselInstance.images().length"
+              >
+                <template
+                  x-for="(image, index) in carouselInstance.images()"
+                  :key="index"
+                >
+                  <div
+                    class="carousel-slide"
+                    x-show="index === carouselInstance.currentIndex"
+                    style="min-width: 100%"
+                  >
+                    <img :src="image" style="width: 100%; height: auto" />
+                  </div>
+                </template>
+              </template>
+            </div>
+            <!-- Navigation Buttons -->
+            <button
+              @click="carouselInstance.incrementCarousel(-1)"
+              class="button"
+            >
+              &#10094;
+            </button>
+            <button
+              @click="carouselInstance.incrementCarousel(1)"
+              class="button"
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Project Data Script -->
+    <script>
+      function projectSectionData() {
+        return {
+          selectedProject: null,
+          projectData: {
+            Offshoots: {
+              description: "Short description of Project 1.",
+              images: [
+                "images/Offshoots/homepage.png",
+                "images/Offshoots/all_plants.png",
+                "images/Offshoots/plant.png",
+                "images/Offshoots/mylist.png",
+                "images/Offshoots/plantinfo.png",
+                "images/Offshoots/plants.png",
+                "images/Offshoots/profile.png",
+                "images/Offshoots/sellwithus.png",
+              ],
+            },
+            "Mushrooms of North Carolina": {
+              description: "Short description of Project 2.",
+              images: [
+                "images/MONC/Picture1.png",
+                "images/MONC/accordion.png",
+                "images/MONC/filter.png",
+                "images/MONC/home.png",
+                "images/MONC/infoclubs.png",
+                "images/MONC/mushroominfo.png",
+                "images/MONC/mushrooms.png",
+              ],
+            },
+          },
+          carouselInstance: null,
+          initCarousel() {
+            if (this.selectedProject) {
+              this.carouselInstance = carouselData(
+                this.projectData[this.selectedProject]
+              );
+            }
+          },
+        };
+      }
+
+      function carouselData(project) {
+        return {
+          currentIndex: 0,
+          images() {
+            return project.images;
+          },
+          incrementCarousel(increment) {
+            this.currentIndex =
+              (this.currentIndex + increment + this.images().length) %
+              this.images().length;
+            console.log("Current image:", this.images()[this.currentIndex]);
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
