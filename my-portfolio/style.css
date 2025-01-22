@@ -47,6 +47,8 @@ main {
   margin: 40px auto;
   max-width: 1200px;
   flex-grow: 1;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .section {
   margin-bottom: 40px;
@@ -82,10 +84,12 @@ main {
 }
 .modal-content {
   background: #fff;
-  padding: 30px;
+  padding: 20px;
   border-radius: 8px;
-  width: 60%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Footer */
@@ -109,6 +113,7 @@ footer {
 .carousel-wrapper {
   display: flex;
   transition: transform 0.5s ease;
+  position: relative;
 }
 
 .carousel-slide img {
@@ -130,7 +135,41 @@ button {
   cursor: pointer;
   z-index: 10;
 }
+.carousel_button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.carousel_button.prev {
+  left: 10px; /* Positioned to the left of the container */
+}
+
+.carousel_button.next {
+  right: 10px; /* Positioned to the right of the container */
+}
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile Compatibility */
+@media (max-width: 768px) {
+  .carousel_button {
+    padding: 10px; /* Smaller button size for mobile */
+  }
+
+  .carousel_button.prev {
+    left: 5px; /* Adjust position for smaller screens */
+  }
+
+  .carousel_button.next {
+    right: 5px; /* Adjust position for smaller screens */
+  }
 }

@@ -23,6 +23,7 @@
       </nav>
     </header>
     <!-- Projects Section -->
+     <main>
     <section id="projects" class="section" x-data="projectSectionData()">
       <h2>Projects</h2>
       <div class="project-cards">
@@ -44,7 +45,7 @@
       <div x-show="selectedProject && carouselInstance" class="modal">
         <div class="modal-content">
           <button @click="selectedProject = null; carouselInstance = null">
-            Close
+            X
           </button>
           <h3 x-text="selectedProject"></h3>
           <!-- Carousel -->
@@ -60,29 +61,30 @@
                   <div
                     class="carousel-slide"
                     x-show="index === carouselInstance.currentIndex"
-                    style="min-width: 100%"
                   >
-                    <img :src="image" style="width: 100%; height: auto" />
+                    <img :src="image" />
                   </div>
                 </template>
               </template>
-            </div>
-            <!-- Navigation Buttons -->
-            <button
-              @click="carouselInstance.incrementCarousel(-1)"
-              class="button"
-            >
-              &#10094;
-            </button>
-            <button
-              @click="carouselInstance.incrementCarousel(1)"
-              class="button"
-            >
-              &#10095;
-            </button>
           </div>
         </div>
-      </div>
+        <!-- Navigation Buttons -->
+        <button
+        @click="carouselInstance.incrementCarousel(-1)"
+        class="carousel_button prev"
+      >
+        &#10094;
+      </button>
+      <button
+        @click="carouselInstance.incrementCarousel(1)"
+        class="carousel_button next"
+      >
+        &#10095;
+      </button>
+        </div>  
+        
+       
+      
     </section>
     <!-- Project Data Script -->
     <script>
@@ -142,5 +144,6 @@
         };
       }
     </script>
+    </main>
   </body>
 </html>
