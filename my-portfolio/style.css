@@ -4,6 +4,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --primary-color: #20863d;
+  --secondary-color: #034c3c;
+  --background-color: #e6fbe8;
+  --text-color: #333;
+  --white-color: #fff;
+  --border-color: #ccc;
+}
 html,
 body {
   height: 100%;
@@ -12,21 +20,21 @@ body {
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #e6fbe8;
-  color: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
   /* padding: 0 20px; */
   display: flex;
   flex-direction: column;
 }
 h2,
 h3 {
-  color: #333;
+  color: var(--text-color);
 }
 
 /* Header */
 header {
-  background-color: #20863d;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--background-color);
   padding: 20px;
 }
 nav ul {
@@ -38,14 +46,13 @@ nav ul li {
   margin: 0 15px;
 }
 nav ul li a {
-  color: #fff;
+  color: var(--background-color);
   text-decoration: none;
 }
 
 /* Main Content */
 main {
-  margin: 40px auto;
-  max-width: 1200px;
+  max-width: 100%;
   flex-grow: 1;
   padding-left: 20px;
   padding-right: 20px;
@@ -53,12 +60,25 @@ main {
 .section {
   margin-bottom: 40px;
 }
+.project-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.project-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 .project-cards {
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
 }
 .project-card {
-  background-color: #fff;
+  background-color: var(--white-color);
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 20px;
@@ -83,26 +103,44 @@ main {
   align-items: center;
 }
 .modal-content {
-  background: #fff;
+  background: var(--white-color);
   padding: 20px;
   border-radius: 8px;
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   position: relative;
   overflow: hidden;
 }
-.modal-body {
+.modal-header {
+  display: flex;
+  justify-content: center;
+}
+.modal-header button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+.modal-header h3 {
+  font-size: 3em;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #034c3c;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: white;
 }
-
-/*About me page*/
+/*Home page!*/
+.home-intro {
+  font-size: xx-large;
+}
+/*About me page!*/
 .intro img {
   width: 60%;
   height: auto;
@@ -119,11 +157,14 @@ footer {
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  height: 710px;
   margin: auto;
   overflow: hidden;
-  border: 2px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-wrapper {
@@ -144,7 +185,7 @@ footer {
 
 button {
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--white-color);
   border: none;
   border-radius: 50%;
   padding: 10px;
@@ -160,20 +201,6 @@ button {
   padding: 15px;
   cursor: pointer;
   z-index: 10;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.carousel_button.prev {
-  left: 10px; /* Positioned to the left of the container */
-}
-
-.carousel_button.next {
-  right: 10px; /* Positioned to the right of the container */
-}
-
-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Mobile Compatibility */
@@ -189,4 +216,51 @@ button:hover {
   .carousel_button.next {
     right: 5px; /* Adjust position for smaller screens */
   }
+}
+.contact-form-container {
+  width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--white-color);
+}
+
+.contact-form h2 {
+  text-align: center;
+  color: #034c3c;
+}
+
+.contact-form div {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: var(--primary-color);
 }

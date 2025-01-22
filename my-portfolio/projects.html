@@ -23,12 +23,15 @@
   </header>
   <!-- Projects Section -->
   <main>
-    <section id="projects" class="section" x-data="projectSectionData()">
+    <section id="projects" x-data="projectSectionData()">
       <h2>Projects</h2>
       <div class="project-cards">
         <template x-for="[name, details] in Object.entries(projectData)" :key="name">
           <div class="project-card" @click="selectedProject = name; initCarousel()">
-            <h3 x-text="name"></h3>
+            <div class="project-title">
+              <img :src="details.logo" alt="Project Logo" class="project-logo" />
+              <h3 x-text="name"></h3>
+            </div>
             <p x-text="details.description"></p>
           </div>
         </template>
@@ -38,31 +41,34 @@
       <div x-show="selectedProject && carouselInstance" class="modal">
         <div class="modal-content">
           <div class="modal-header">
-          <button @click="selectedProject = null; carouselInstance = null">
-            X
-          </button>
-          <h3 x-text="selectedProject"></h3>
-        </div>
+            <button @click="selectedProject = null; carouselInstance = null">
+              X
+            </button>
+            <h3 x-text="selectedProject"></h3>
+          </div>
           <!-- Carousel -->
-        <div class="modal-body">
-          <button @click="carouselInstance.incrementCarousel(-1)" class="carousel_button prev">
-            &#10094;
-          </button>
-          <div class="carousel">
-            <div class="carousel-wrapper">
-              <template x-if="carouselInstance && carouselInstance.images().length">
-                <template x-for="(image, index) in carouselInstance.images()" :key="index">
-                  <div class="carousel-slide" x-show="index === carouselInstance.currentIndex">
-                    <img :src="image" />
-                  </div>
+          <div class="modal-body">
+
+            <div class="carousel">
+              <div class="carousel-wrapper">
+                <template x-if="carouselInstance && carouselInstance.images().length">
+                  <template x-for="(image, index) in carouselInstance.images()" :key="index">
+                    <div class="carousel-slide" x-show="index === carouselInstance.currentIndex">
+                      <img :src="image" />
+                    </div>
+                  </template>
                 </template>
-              </template>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button @click="carouselInstance.incrementCarousel(-1)" class="carousel_button prev">
+                &#10094;
+              </button>
+              <button @click="carouselInstance.incrementCarousel(1)" class="carousel_button next">
+                &#10095;
+              </button>
             </div>
           </div>
-          <button @click="carouselInstance.incrementCarousel(1)" class="carousel_button next">
-            &#10095;
-          </button>
-        </div>
         </div>
 
 
@@ -75,7 +81,8 @@
           selectedProject: null,
           projectData: {
             Offshoots: {
-              description: "Short description of Project 1.",
+              logo: "images/Logos/bamboo.png",
+              description: "This project showcases a dynamic web application designed to connect users through a marketplace for plant cuttings, emphasizing interactivity, security, and a polished user experience. Purpose: To develop a feature-rich platform using technologies like Node.js, Express, MongoDB, and EJS, structured within an MVC framework, while integrating database management and user functionality. Key Features: User Integration: Enabled user registration, login, and personalized profiles linked to their listed items. Offers Functionality: Allowed users to make, view, accept/reject, or cancel offers, with real-time updates on offer totals and highest bids. Enhanced Security and UX: Enforced authorization rules, added flash messages for intuitive notifications, and implemented persistent session management for seamless navigation. Dynamic Content: Used Mongoose to manage relationships between users, items, and offers, ensuring accurate, data-driven views. Polished UI: Improved navigation for guests and logged-in users, creating a tailored experience. Reflection: This project combines concepts from coursework, such as dynamic routing and database modeling, with practical skills from my internship, like API testing and real-time data handling, strengthening my backend development skills and preparing me for future projects involving dynamic web applications.",
               images: [
                 "images/Offshoots/homepage.png",
                 "images/Offshoots/all_plants.png",
@@ -84,11 +91,12 @@
                 "images/Offshoots/plantinfo.png",
                 "images/Offshoots/plants.png",
                 "images/Offshoots/profile.png",
-                "images/Offshoots/sellwithus.png",
+
               ],
             },
             "Mushrooms of North Carolina": {
-              description: "Short description of Project 2.",
+              logo: "images/Logos/mushroom.png",
+              description: "This project focuses on enhancing user experience through interactive web components, demonstrating proficiency in design and functionality. Purpose: To create a dynamic, user-friendly website by incorporating features that improve usability, accessibility, and content organization. Key Features: Dark Mode/Light Mode Toggle: Seamlessly switches between light and dark themes across all pages, ensuring consistent styling for elements and maintaining a polished look. Search Filter: Allows users to search and display specific items (e.g., mushrooms) by name, supporting partial matches for intuitive and flexible searches. Accordion Component: Organizes content with collapsible sections for easier navigation, automatically closing one section when another is opened for a clean interface.",
               images: [
                 "images/MONC/Picture1.png",
                 "images/MONC/accordion.png",
@@ -111,6 +119,25 @@
         };
       }
 
+
+      async function getMaxPhotoHeight(photoPaths) {
+        const heights = await Promise.all(
+          photoPaths.map(async (path) => {
+            const img = new Image();
+            img.src = path;
+            await img.decode();
+            return img.height;
+          })
+        );
+        return Math.max(...heights);
+      }
+
+      getMaxPhotoHeight(projectSectionData().projectData.Offshoots.images).then((maxHeight) => {
+        console.log("Tallest image height:", maxHeight);
+      });
+
+
+
       function carouselData(project) {
         return {
           currentIndex: 0,
@@ -128,5 +155,8 @@
     </script>
   </main>
 </body>
+<footer>
+  <p>&copy; 2025 Inna Visotskaya</p>
+</footer>
 
 </html>
