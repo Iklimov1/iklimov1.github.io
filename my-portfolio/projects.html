@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inna's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
-      defer
-    ></script>
-  </head>
-  <body>
-    <!-- Header Section -->
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Me</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Projects Section -->
-     <main>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inna's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Projects Section -->
+  <main>
     <section id="projects" class="section" x-data="projectSectionData()">
       <h2>Projects</h2>
       <div class="project-cards">
-        <template
-          x-for="[name, details] in Object.entries(projectData)"
-          :key="name"
-        >
-          <div
-            class="project-card"
-            @click="selectedProject = name; initCarousel()"
-          >
+        <template x-for="[name, details] in Object.entries(projectData)" :key="name">
+          <div class="project-card" @click="selectedProject = name; initCarousel()">
             <h3 x-text="name"></h3>
             <p x-text="details.description"></p>
           </div>
@@ -44,47 +37,36 @@
       <!-- Project Details Modal -->
       <div x-show="selectedProject && carouselInstance" class="modal">
         <div class="modal-content">
+          <div class="modal-header">
           <button @click="selectedProject = null; carouselInstance = null">
             X
           </button>
           <h3 x-text="selectedProject"></h3>
+        </div>
           <!-- Carousel -->
+        <div class="modal-body">
+          <button @click="carouselInstance.incrementCarousel(-1)" class="carousel_button prev">
+            &#10094;
+          </button>
           <div class="carousel">
             <div class="carousel-wrapper">
-              <template
-                x-if="carouselInstance && carouselInstance.images().length"
-              >
-                <template
-                  x-for="(image, index) in carouselInstance.images()"
-                  :key="index"
-                >
-                  <div
-                    class="carousel-slide"
-                    x-show="index === carouselInstance.currentIndex"
-                  >
+              <template x-if="carouselInstance && carouselInstance.images().length">
+                <template x-for="(image, index) in carouselInstance.images()" :key="index">
+                  <div class="carousel-slide" x-show="index === carouselInstance.currentIndex">
                     <img :src="image" />
                   </div>
                 </template>
               </template>
+            </div>
           </div>
+          <button @click="carouselInstance.incrementCarousel(1)" class="carousel_button next">
+            &#10095;
+          </button>
         </div>
-        <!-- Navigation Buttons -->
-        <button
-        @click="carouselInstance.incrementCarousel(-1)"
-        class="carousel_button prev"
-      >
-        &#10094;
-      </button>
-      <button
-        @click="carouselInstance.incrementCarousel(1)"
-        class="carousel_button next"
-      >
-        &#10095;
-      </button>
-        </div>  
-        
-       
-      
+        </div>
+
+
+
     </section>
     <!-- Project Data Script -->
     <script>
@@ -144,6 +126,7 @@
         };
       }
     </script>
-    </main>
-  </body>
+  </main>
+</body>
+
 </html>

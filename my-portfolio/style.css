@@ -91,6 +91,8 @@ main {
   position: relative;
   overflow: hidden;
 }
+.modal-body {
+}
 
 /* Footer */
 footer {
@@ -100,6 +102,20 @@ footer {
   color: #fff;
 }
 
+/*About me page*/
+.intro img {
+  width: 60%;
+  height: auto;
+  border-radius: 10px;
+}
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+/*The carousel stylings*/
 .carousel {
   position: relative;
   width: 100%;
@@ -135,6 +151,7 @@ button {
   cursor: pointer;
   z-index: 10;
 }
+
 .carousel_button {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
