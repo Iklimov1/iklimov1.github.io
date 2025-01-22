@@ -33,18 +33,20 @@
   </header>
 
   <main>
-    <section id="contact" class="section" x-data="contactForm()">
-      <h2>Contact Me</h2>
-      <section id="contact" class="section">
-        <a href="Klimova.inna7@gmail.com">Email</a>
+    <section id="contact" x-data="contactForm()">
+      <h2 class="contact-title">Contact Me</h2>
+      <section id="contact" class="contact-subtitle">
+        <!-- <a href="Klimova.inna7@gmail.com">Email</a> -->
         <a href="https://www.linkedin.com/in/inna-visotskaya/">LinkedIn</a>
         <a href="https://github.com/Iklimov1">GitHub</a>
       </section>
+
       <div class="contact-form-container">
         <p x-show="submitted">Thank you for your message! I'll get back to you soon.</p>
 
         <!-- Contact Form -->
         <form @submit.prevent="handleSubmit" class="contact-form">
+          <h3 class="message">Send me a message</h3>
           <div>
             <label for="from_name">Full Name:</label>
             <input type="text" id="from_name" name="from_name" x-model="formData.from_name" required />

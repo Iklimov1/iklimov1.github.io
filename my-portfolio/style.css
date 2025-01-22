@@ -264,3 +264,17 @@ button {
 .contact-form button:hover {
   background-color: var(--primary-color);
 }
+.message {
+  color: var(--text-color);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+.contact-title {
+  text-align: center;
+  padding-top: 10px;
+  font-size: xx-large;
+}
+.contact-subtitle {
+  text-align: center;
+}
