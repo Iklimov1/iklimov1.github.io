@@ -5,16 +5,26 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-color: #20863d;
-  --secondary-color: #034c3c;
-  --background-color: #e6fbe8;
+  --primary-color: #6a7f3d; /* Rich green */
+  --secondary-color: #034c3c; /* Deep moss green */
+  --background-color: #e6fbe8; /* Soft light green */
   --text-color: #333;
   --white-color: #fff;
   --border-color: #ccc;
+  --highlight-color: #81c0b1; /* Soft sky blue */
 }
 html,
 body {
   height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    120deg,
+    var(--primary-color),
+    var(--highlight-color)
+  );
+  background-size: 100% 100%;
+  animation: gradientAnimation 5s ease infinite;
+  color: var(--text-color);
 }
 
 body {
@@ -79,7 +89,7 @@ main {
 }
 .project-card {
   background-color: var(--white-color);
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   padding: 20px;
   width: 45%;
@@ -129,12 +139,12 @@ main {
   margin-top: 10px;
 }
 
-/* Footer */
+/* Footer  NEED to decide on better color combo*/
 footer {
   text-align: center;
   padding: 20px;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-color);
 }
 /*Home page!*/
 .home-intro {
@@ -185,20 +195,10 @@ footer {
 
 button {
   background-color: rgba(0, 0, 0, 0.5);
-  color: var(--white-color);
+  color: var(--secondary-color);
   border: none;
   border-radius: 50%;
   padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.carousel_button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 15px;
   cursor: pointer;
   z-index: 10;
 }
@@ -217,6 +217,46 @@ button {
     right: 5px; /* Adjust position for smaller screens */
   }
 }
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.carousel-button {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--primary-color);
+  transform: scale(1.1);
+  transition: 2ms;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: var(--text-color);
+}
 .contact-form-container {
   width: 1000px;
   margin: 2rem auto;
@@ -228,7 +268,7 @@ button {
 
 .contact-form h2 {
   text-align: center;
-  color: #034c3c;
+  color: var(--secondary-color);
 }
 
 .contact-form div {
@@ -245,7 +285,7 @@ button {
 .contact-form textarea {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 1rem;
 }
@@ -277,4 +317,104 @@ button {
 }
 .contact-subtitle {
   text-align: center;
+}
+/* General Styles */
+
+header {
+  position: sticky;
+  top: 0;
+  background: transparent;
+  padding: 20px 40px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: var(--secondary-color);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.home-intro {
+  text-align: center;
+  padding: 100px 20px;
+
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  color: var(--white-color);
+}
+
+.home-intro h1 {
+  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  color: var(--white-color);
+}
+
+.artistic-background {
+  background-image: url("images/mountains.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+#projects-preview {
+  margin-top: 50px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+#projects-preview h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.project-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: scroll;
+}
+
+/* Interactive Elements */
+nav ul li a {
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  color: var(--secondary-color);
+}
+.home-intro p {
+  font-size: 1.5rem;
+  color: var(--background-color);
+  margin-top: 20px;
+}
+/* Shadow when hover */
+.home-intro:hover,
+.project-carousel:hover {
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons/Links */
+a.button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+a.button:hover {
+  background-color: var(--secondary-color);
 }

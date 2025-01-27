@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offshoots Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="project-details" x-data="carouselData()">
+            <h2>Offshoots</h2>
+            <p>
+                Offshoots is a dynamic online marketplace for plant cuttings. The platform allows users to browse and
+                purchase various plant cuttings while also providing care instructions and detailed plant information.
+            </p>
+
+            <!-- Carousel -->
+            <div class="carousel">
+                <div class="carousel-wrapper">
+                    <template x-for="(image, index) in images" :key="index">
+                        <div class="carousel-slide" x-show="index === currentIndex">
+                            <img :src="image" :alt="'Slide ' + (index + 1)" />
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Carousel Controls and Dots -->
+            <div class="carousel-controls">
+                <button @click="prevSlide" class="carousel-button prev">&#10094;</button>
+
+                <!-- Dots in the middle of the controls -->
+                <div class="carousel-dots">
+                    <template x-for="(image, index) in images" :key="index">
+                        <span class="dot" :class="{'active': currentIndex === index}"
+                            @click="currentIndex = index"></span>
+                    </template>
+                </div>
+
+                <button @click="nextSlide" class="carousel-button next">&#10095;</button>
+            </div>
+
+            <h3>Features</h3>
+            <ul>
+                <li>Intuitive interface for browsing plant cuttings</li>
+                <li>Search and filter functionality for easy navigation</li>
+                <li>Detailed care instructions for each plant</li>
+                <li>Mobile-responsive design for accessibility</li>
+            </ul>
+
+            <h3>Technologies Used</h3>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Express.js for backend functionality</li>
+                <li>MongoDB for database management</li>
+                <li>Tailwind CSS for styling</li>
+            </ul>
+
+            <h3>Project Highlights</h3>
+            <p>
+                One of the standout features of Offshoots is its real-time sorting capability, which allows newly added
+                items to appear immediately without requiring a page refresh. This enhances the user experience by
+                keeping the interface up-to-date dynamically.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Inna Visotskaya</p>
+    </footer>
+
+    <script>
+        function carouselData() {
+            return {
+                currentIndex: 0,
+                images: [
+                    "images/Offshoots/homepage.png",
+                    "images/Offshoots/all_plants.png",
+                    "images/Offshoots/plant.png",
+                    "images/Offshoots/mylist.png",
+                    "images/Offshoots/plantinfo.png",
+                    "images/Offshoots/plants.png",
+                    "images/Offshoots/profile.png"
+                ],
+                nextSlide() {
+                    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                },
+                prevSlide() {
+                    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
