@@ -25,10 +25,6 @@ body {
   background-size: 100% 100%;
   animation: gradientAnimation 5s ease infinite;
   color: var(--text-color);
-}
-
-body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -47,18 +43,6 @@ header {
   color: var(--background-color);
   padding: 20px;
 }
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-}
-nav ul li {
-  margin: 0 15px;
-}
-nav ul li a {
-  color: var(--background-color);
-  text-decoration: none;
-}
 
 /* Main Content */
 main {
@@ -71,8 +55,8 @@ main {
   margin-bottom: 40px;
 }
 .project-logo {
-  width: 50px;
-  height: 50px;
+  width: 10px;
+  height: 10px;
   border-radius: 10px;
   object-fit: cover;
   margin-right: 10px;
@@ -88,16 +72,25 @@ main {
   padding-top: 20px;
 }
 .project-card {
-  background-color: var(--white-color);
+  background: linear-gradient(
+    120deg,
+    var(--primary-color),
+    var(--highlight-color)
+  );
   border: 1px solid var(--border-color);
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   width: 45%;
   cursor: pointer;
   transition: transform 0.2s;
 }
 .project-card:hover {
   transform: scale(1.05);
+}
+.project-card img {
+  width: 30%;
+  height: auto;
+  border-radius: 5px;
 }
 
 /* Modal Styles */
@@ -142,8 +135,9 @@ main {
 /* Footer  NEED to decide on better color combo*/
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: var(--primary-color);
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
   color: var(--text-color);
 }
 /*Home page!*/
@@ -263,7 +257,12 @@ button {
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 5px;
-  background-color: var(--white-color);
+  color: var(--white-color);
+  background: linear-gradient(
+    120deg,
+    var(--primary-color),
+    var(--highlight-color)
+  );
 }
 
 .contact-form h2 {
@@ -295,7 +294,8 @@ button {
   padding: 0.7rem;
   border: none;
   border-radius: 5px;
-  background-color: var(--primary-color);
+  background-color: transparent;
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
   color: var(--white-color);
   font-size: 1rem;
   cursor: pointer;
@@ -305,7 +305,7 @@ button {
   background-color: var(--primary-color);
 }
 .message {
-  color: var(--text-color);
+  color: var(--white-color);
   font-weight: bold;
   text-align: center;
   margin-top: 1rem;
@@ -314,6 +314,7 @@ button {
   text-align: center;
   padding-top: 10px;
   font-size: xx-large;
+  color: var(--white-color);
 }
 .contact-subtitle {
   text-align: center;
@@ -331,18 +332,23 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 30px;
+  list-style-type: none;
 }
 
 nav ul li a {
-  color: var(--secondary-color);
   font-weight: bold;
   transition: 0.3s;
+  transition: all 0.3s ease-in-out;
+  color: var(--background-color);
+  text-decoration: none;
 }
-
 nav ul li a:hover {
   color: var(--secondary-color);
+  text-decoration: underline;
 }
-
+nav ul li {
+  margin: 0 15px;
+}
 .home-intro {
   text-align: center;
   padding: 100px 20px;
@@ -386,14 +392,7 @@ nav ul li a:hover {
 }
 
 /* Interactive Elements */
-nav ul li a {
-  transition: all 0.3s ease-in-out;
-}
 
-nav ul li a:hover {
-  text-decoration: underline;
-  color: var(--secondary-color);
-}
 .home-intro p {
   font-size: 1.5rem;
   color: var(--background-color);
@@ -406,6 +405,18 @@ nav ul li a:hover {
 }
 
 /* Buttons/Links */
+a {
+  font-weight: bold;
+  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
+  color: var(--background-color);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
 a.button {
   background-color: var(--primary-color);
   color: var(--white-color);
