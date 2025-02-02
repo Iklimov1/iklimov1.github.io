@@ -8,56 +8,109 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
 </head>
-<!-- Header Section -->
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-<!-- Main Content Section -->
-<main>
-  <section>
-    <h2>A little about me...</h2>
-    <div class="intro">
-      <p>
-        Hello! I'm Inna Visotskaya, a software developer passionate about
-        building scalable and impactful applications. Currently pursuing a
-        Bachelor’s in Computer Science at UNC Charlotte, I specialize in
-        software engineering, AI, and cloud computing. I'm constantly
-        exploring new technologies and love the process of solving complex
-        problems with code.
-      </p>
-      <img src="images/Me/profile.JPG" />
-    </div>
-    <h3>Education</h3>
-    <p>
-      I graduated with an Associate of Arts in Computer Science from Central Piedmont Community College and am currently
-      completing my Bachelor of Science in Computer Science at UNC Charlotte. Some of the key subjects I've focused on
-      include Artificial Intelligence, Software Engineering, and Algorithms. These areas fuel my
-      passion for developing intelligent systems and building cloud-based solutions.
-    </p>
-    <h3>Skills I've mastered</h3>
-    <p>Languages & Frameworks: Python, JavaScript, Node.js, EJS, CSS, HTML, Tailwind CSS, MongoDB, SQL
-      Technologies: AWS Lambda, API Gateway, Terraform, Git, Vite, Apigee
-      Software Engineering: Full-stack development, Agile methodologies, Cloud computing
-      Other: Problem-solving, Team collaboration, Adaptability, Communication</p>
-    <h3>Experience</h3>
-    During my recent internship at Ally Financial, I developed an AI prediction service using Python and Node.js, which
-    helped reduce call center volume. I also implemented serverless data processing pipelines and deployed cloud
-    infrastructure using AWS and Terraform. My experience in Agile environments with Jira has helped me work efficiently
-    in cross-functional teams, and I’m excited to bring these skills to my future projects.
-    <h3>My Passions</h3>
-    <p>When I'm not coding, you can find me exploring the great outdoors, taking photos for my church, or experimenting
-      with new baking recipes.</p>
-  </section>
-</main>
-<footer>
-  <p>&copy; 2025 Inna Visotskaya</p>
-</footer>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Section -->
+  <main>
+    <section>
+      <h2>A little about me...</h2>
+      <div class="content-section">
+        <div class="content-text text-container">
+          <p>
+            Hello! I'm Inna Visotskaya, a software developer passionate about
+            building scalable and impactful applications. Currently pursuing a
+            Bachelor’s in Computer Science at UNC Charlotte, I specialize in
+            software engineering, AI, and cloud computing. I'm constantly
+            exploring new technologies and love the process of solving complex
+            problems with code.
+          </p>
+        </div>
+        <div class="content-image">
+          <img src="images/Me/profile.JPG" alt="Profile image of Inna" />
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="content-image">
+          <img src="images/me/PXL_20220809_001546103.jpg" alt="Education background" />
+        </div>
+        <div class="content-text">
+          <h3>Education</h3>
+          <p>
+            I graduated with an Associate of Arts in Computer Science from Central Piedmont Community College and am
+            currently completing my Bachelor of Science in Computer Science at UNC Charlotte. Some of the key subjects
+            I've focused on include Artificial Intelligence, Software Engineering, and Algorithms. These areas fuel my
+            passion for developing intelligent systems and building cloud-based solutions.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="content-text text-container">
+          <h3>Skills I've mastered</h3>
+          <p>
+            Languages & Frameworks: Python, JavaScript, Node.js, EJS, CSS, HTML, Tailwind CSS, MongoDB, SQL <br />
+            Technologies: AWS Lambda, API Gateway, Terraform, Git, Vite, Apigee <br />
+            Software Engineering: Full-stack development, Agile methodologies, Cloud computing <br />
+            Other: Problem-solving, Team collaboration, Adaptability, Communication
+          </p>
+        </div>
+        <div class="content-image">
+          <img src="images/Skills/skills.jpg" alt="Skills and tools" />
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="content-image">
+          <img src="images/me/ally.jpg" alt="Professional experience" />
+        </div>
+        <div class="content-text">
+          <h3>Experience</h3>
+          <p>
+            During my recent internship at Ally Financial, I developed an AI prediction service using Python and
+            Node.js, which helped reduce call center volume. I also implemented serverless data processing pipelines
+            and deployed cloud infrastructure using AWS and Terraform. My experience in Agile environments with Jira
+            has helped me work efficiently in cross-functional teams, and I’m excited to bring these skills to my
+            future projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <div class="content-text text-container">
+          <h3>My Passions</h3>
+          <p>
+            When I'm not coding, you can find me exploring the great outdoors, taking photos for my church, or
+            experimenting with new baking recipes.
+          </p>
+        </div>
+        <div class="content-image">
+          <img src="images/me/wapta_falls.JPG" alt="Hobbies and interests" />
+        </div>
+        <div class="content-image">
+          <img src="images/me/macarons.jpg" alt="Hobbies and interests" />
+          <img src="images/me/photographer.jpg" alt="Hobbies and interests" />
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Inna Visotskaya</p>
+  </footer>
+</body>
 
 </html>
