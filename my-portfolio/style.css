@@ -12,29 +12,31 @@
   --white-color: #fff;
   --border-color: #ccc;
   --highlight-color: #81c0b1; /* Soft sky blue */
+  --primary-font: "Poppins", sans-serif;
+  --secondary-font: "Playfair Display", serif;
+  --title: 4em;
+  --subtitle: 2em;
+  --body: 1.1em;
+  --button: 2rem;
 }
 html,
 body {
   height: 100%;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
   background: linear-gradient(
     120deg,
     var(--primary-color),
     var(--highlight-color)
   );
   background-size: 100% 100%;
+  color: var(--white-color);
+  font-size: var(--body);
   animation: gradientAnimation 5s ease infinite;
-  color: var(--text-color);
   line-height: 1.6;
   background-color: var(--background-color);
-  color: var(--text-color);
   /* padding: 0 20px; */
   display: flex;
   flex-direction: column;
-}
-h2,
-h3 {
-  color: var(--text-color);
 }
 
 /* Header */
@@ -72,6 +74,7 @@ main {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  font-size: var(--subtitle);
 }
 .project-cards {
   display: flex;
@@ -80,7 +83,7 @@ main {
 }
 .project-card {
   background: transparent;
-  border: 2px solid var(--white-color);
+  border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 10px;
   width: 45%;
@@ -95,9 +98,8 @@ main {
   height: auto;
   border-radius: 5px;
 }
-
-/* Modal Styles */
-.modal {
+/* 
+Modal Styles .modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -133,7 +135,7 @@ main {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-}
+} */
 
 /* Footer  NEED to decide on better color combo*/
 footer {
@@ -145,7 +147,7 @@ footer {
 }
 /*Home page!*/
 .home-intro {
-  font-size: xx-large;
+  font-size: xx-large; /* figur eout what this is supposed to be in terms of titles??*/
 }
 /*About me page!*/
 .intro img {
@@ -224,7 +226,7 @@ button {
 .carousel-button {
   background-color: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: var(--button);
   cursor: pointer;
 }
 .carousel-button:hover {
@@ -255,8 +257,8 @@ button {
   background-color: var(--text-color);
 }
 .contact-form-container {
-  width: 1000px;
-  margin: 2rem auto;
+  width: 800px;
+  margin: 1rem auto;
   padding: 1rem;
   border: 1px solid var(--border-color);
   border-radius: 5px;
@@ -268,10 +270,10 @@ button {
   );
 }
 
-.contact-form h2 {
+/* .contact-form h3 {
   text-align: center;
-  color: var(--secondary-color);
-}
+  font-size: var(--body);
+} */
 
 .contact-form div {
   margin-bottom: 1rem;
@@ -281,6 +283,7 @@ button {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  font-size: var(--body);
 }
 
 .contact-form input,
@@ -300,7 +303,7 @@ button {
   background-color: transparent;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
   color: var(--white-color);
-  font-size: 1rem;
+  font-size: var(--body);
   cursor: pointer;
 }
 
@@ -316,18 +319,25 @@ button {
 .contact-title {
   text-align: center;
   padding-top: 10px;
-  font-size: xx-large;
+  font-size: var(--subtitle);
   color: var(--white-color);
+  font-family: var(--secondary-font);
+  width: 800px;
 }
 .contact-subtitle {
   text-align: center;
 }
 /* General Styles */
-
+.icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 5px;
+  color: var(--white-color);
+}
 header {
   position: sticky;
   top: 0;
-  background: transparent;
   padding: 20px 40px;
 }
 
@@ -362,8 +372,8 @@ nav ul li {
 }
 
 .home-intro h1 {
-  font-size: 4rem;
-  font-family: "Playfair Display", serif;
+  font-size: var(--subtitle);
+  font-family: var(--secondary-font);
   color: var(--white-color);
 }
 
@@ -379,13 +389,13 @@ nav ul li {
 #projects-preview {
   margin-top: 50px;
   text-align: center;
-  color: var(--text-color);
+  color: var(--white-color);
 }
 
 #projects-preview h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .project-carousel {
@@ -393,7 +403,13 @@ nav ul li {
   gap: 30px;
   overflow-x: scroll;
 }
-
+.project-details {
+  color: var(--white-color);
+}
+.project-details h2 {
+  align-items: center;
+  color: var(--white-color);
+}
 /* Interactive Elements */
 
 .home-intro p {
@@ -451,7 +467,6 @@ a.button:hover {
   border: 1px solid var(--border-color);
   border-radius: 10px;
   color: var(--white-color);
-  font-size: larger;
 }
 
 .content-image img {
@@ -488,4 +503,9 @@ a.button:hover {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.subpages {
+  max-width: 800px;
+  margin: auto;
 }

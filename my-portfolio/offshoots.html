@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="main-header">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -21,8 +21,8 @@
         </nav>
     </header>
 
-    <main>
-        <section id="project-details" x-data="carouselData()">
+    <main class="subpages">
+        <section class="project-details" x-data="carouselData()">
             <h2>Offshoots</h2>
             <p>
                 Offshoots is a dynamic online marketplace for plant cuttings. The platform allows users to browse and
@@ -54,33 +54,56 @@
 
                 <button @click="nextSlide" class="carousel-button next">&#10095;</button>
             </div>
+            <div class="grid">
+                <div class="column">
+                    <div class="content-text text-container">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Intuitive interface for browsing plant cuttings</li>
+                            <li>Search and filter functionality for easy navigation</li>
+                            <li>Detailed care instructions for each plant</li>
+                            <li>Mobile-responsive design for accessibility</li>
+                        </ul>
+                    </div>
+                    <div class="content-text text-container">
+                        <h3>Technologies Used</h3>
+                        <ul>
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Express.js for backend functionality</li>
+                            <li>MongoDB for database management</li>
+                            <li>Tailwind CSS for styling</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <h3>Features</h3>
-            <ul>
-                <li>Intuitive interface for browsing plant cuttings</li>
-                <li>Search and filter functionality for easy navigation</li>
-                <li>Detailed care instructions for each plant</li>
-                <li>Mobile-responsive design for accessibility</li>
-            </ul>
-
-            <h3>Technologies Used</h3>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Express.js for backend functionality</li>
-                <li>MongoDB for database management</li>
-                <li>Tailwind CSS for styling</li>
-            </ul>
-
-            <h3>Project Highlights</h3>
-            <p>
-                One of the standout features of Offshoots is its real-time sorting capability, which allows newly added
-                items to appear immediately without requiring a page refresh. This enhances the user experience by
-                keeping the interface up-to-date dynamically.
-            </p>
+                <div class="column">
+                    <div class="content-text">
+                        <h3>Project Highlights</h3>
+                        <p>
+                            One of the standout features of Offshoots is its real-time sorting capability, which allows
+                            newly added
+                            items to appear immediately without requiring a page refresh. This enhances the user
+                            experience by
+                            keeping the interface up-to-date dynamically.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
+        <section id="contact" class="contact-subtitle">
+            <a href="https://www.linkedin.com/in/inna-visotskaya/">
+                <img src="images/logos/linkedin.png" alt="LinkedIn" class="icon" /> LinkedIn
+            </a>
+            <a href="https://github.com/Iklimov1">
+                <img src="images/logos/github.png" alt="GitHub" class="icon" /> GitHub
+            </a>
+            <a href="mailto:Klimova.inna7@gmail.com">
+                <img src="images/logos/mail.png" alt="Email" class="icon" /> Klimova.inna7@gmail.com
+            </a>
+        </section>
         <p>&copy; 2025 Inna Visotskaya</p>
     </footer>
 
