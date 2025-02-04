@@ -1,122 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mushrooms of North Carolina</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-</head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
 
-<body>
+  <body>
     <header class="main-header">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main class="subpages">
-        <section class="project-details" x-data="carouselData()">
-            <h2>Mushrooms of North Carolina</h2>
-            <p>
-                Mushrooms of North Carolina is an interactive website to explore various types of mushrooms found in
-                North Carolina. It includes features like search filters, dark/light mode toggle, and accordion-style
-                information for each species.
-            </p>
+      <section class="project-details" x-data="carouselData()">
+        <h2>Mushrooms of North Carolina</h2>
+        <p>
+          Mushrooms of North Carolina is an interactive website to explore
+          various types of mushrooms found in North Carolina. It includes
+          features like search filters, dark/light mode toggle, and
+          accordion-style information for each species.
+        </p>
 
-            <!-- Carousel -->
-            <div class="carousel">
-                <div class="carousel-wrapper">
-                    <template x-for="(image, index) in images" :key="index">
-                        <div class="carousel-slide" x-show="index === currentIndex">
-                            <img :src="image" :alt="'Slide ' + (index + 1)" />
-                        </div>
-                    </template>
-                </div>
-            </div>
-            <!-- Carousel Controls and Dots -->
-            <div class="carousel-controls">
-                <button @click="prevSlide" class="carousel-button prev">&#10094;</button>
+        <!-- Carousel -->
+        <div class="carousel">
+          <div class="carousel-wrapper">
+            <template x-for="(image, index) in images" :key="index">
+              <div class="carousel-slide" x-show="index === currentIndex">
+                <img :src="image" :alt="'Slide ' + (index + 1)" />
+              </div>
+            </template>
+          </div>
+        </div>
+        <!-- Carousel Controls and Dots -->
+        <div class="carousel-controls">
+          <button @click="prevSlide" class="carousel-button prev">
+            &#10094;
+          </button>
 
-                <!-- Dots in the middle of the controls -->
-                <div class="carousel-dots">
-                    <template x-for="(image, index) in images" :key="index">
-                        <span class="dot" :class="{'active': currentIndex === index}"
-                            @click="currentIndex = index"></span>
-                    </template>
-                </div>
+          <!-- Dots in the middle of the controls -->
+          <div class="carousel-dots">
+            <template x-for="(image, index) in images" :key="index">
+              <span
+                class="dot"
+                :class="{'active': currentIndex === index}"
+                @click="currentIndex = index"
+              ></span>
+            </template>
+          </div>
 
-                <button @click="nextSlide" class="carousel-button next">&#10095;</button>
-            </div>
+          <button @click="nextSlide" class="carousel-button next">
+            &#10095;
+          </button>
+        </div>
 
-            <h3>Features</h3>
-            <ul>
-                <li>Dark Mode/Light Mode toggle for a seamless user experience</li>
-                <li>Interactive accordion component for easier navigation of mushroom species</li>
+        <div class="grid">
+          <div class="column">
+            <div class="content-text text-container">
+              <h3>Features</h3>
+              <ul>
+                <li>
+                  Dark Mode/Light Mode toggle for a seamless user experience
+                </li>
+                <li>
+                  Interactive accordion component for easier navigation of
+                  mushroom species
+                </li>
                 <li>Search filter to display mushrooms by name</li>
-                <li>Content-rich interface with easy-to-read species details</li>
-            </ul>
+                <li>
+                  Content-rich interface with easy-to-read species details
+                </li>
+              </ul>
+            </div>
+          </div>
 
-            <h3>Technologies Used</h3>
-            <ul>
+          <div class="column">
+            <div class="content-text">
+              <h3>Project Highlights</h3>
+              <p>
+                A standout feature of this project is the dynamic interaction
+                with the dark and light mode for improved accessibility. The
+                accordion component enables users to quickly navigate detailed
+                information about each mushroom species.
+              </p>
+            </div>
+            <div class="content-text text-container">
+              <h3>Technologies Used</h3>
+              <ul>
                 <li>HTML, CSS, JavaScript</li>
                 <li>Vanilla JS for interactive components</li>
                 <li>MongoDB for database management</li>
                 <li>CSS for styling</li>
-            </ul>
-
-            <h3>Project Highlights</h3>
-            <p>
-                A standout feature of this project is the dynamic interaction with the dark and light mode for improved
-                accessibility. The accordion component enables users to quickly navigate detailed information about
-                each mushroom species.
-            </p>
-        </section>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <section id="contact" class="contact-subtitle">
-            <a href="https://www.linkedin.com/in/inna-visotskaya/">
-                <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" /> LinkedIn
-            </a>
-            <a href="https://github.com/Iklimov1">
-                <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
-            </a>
-            <a href="mailto:Klimova.inna7@gmail.com">
-                <img src="images/Logos/mail.png" alt="Email" class="icon" /> Klimova.inna7@gmail.com
-            </a>
-        </section>
-        <p>&copy; 2025 Inna Visotskaya</p>
+      <section id="contact" class="contact-subtitle">
+        <a href="https://www.linkedin.com/in/inna-visotskaya/">
+          <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" />
+          LinkedIn
+        </a>
+        <a href="https://github.com/Iklimov1">
+          <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
+        </a>
+        <a href="mailto:Klimova.inna7@gmail.com">
+          <img src="images/Logos/mail.png" alt="Email" class="icon" />
+          Klimova.inna7@gmail.com
+        </a>
+      </section>
+      <p>&copy; 2025 Inna Visotskaya</p>
     </footer>
 
     <script>
-        function carouselData() {
-            return {
-                currentIndex: 0,
-                images: [
-                    "images/MONC/Picture1.png",
-                    "images/MONC/accordion.png",
-                    "images/MONC/filter.png",
-                    "images/MONC/home.png",
-                    "images/MONC/infoclubs.png",
-                    "images/MONC/mushroominfo.png",
-                    "images/MONC/mushrooms.png"
-                ],
-                nextSlide() {
-                    this.currentIndex = (this.currentIndex + 1) % this.images.length;
-                },
-                prevSlide() {
-                    this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-                }
-            };
-        }
+      function carouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "images/MONC/Picture1.png",
+            "images/MONC/accordion.png",
+            "images/MONC/filter.png",
+            "images/MONC/home.png",
+            "images/MONC/infoclubs.png",
+            "images/MONC/mushroominfo.png",
+            "images/MONC/mushrooms.png",
+          ],
+          nextSlide() {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+          },
+          prevSlide() {
+            this.currentIndex =
+              (this.currentIndex - 1 + this.images.length) % this.images.length;
+          },
+        };
+      }
     </script>
-</body>
-
+  </body>
 </html>

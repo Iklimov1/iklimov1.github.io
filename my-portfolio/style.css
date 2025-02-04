@@ -21,7 +21,7 @@
 }
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
   font-family: var(--primary-font);
   background: linear-gradient(
     120deg,
@@ -52,6 +52,7 @@ header {
     rgba(129, 192, 177, 0.5)
   ); /* Sheer gradient background */
   backdrop-filter: blur(10px); /* Blur effect */
+  margin-bottom: 20px;
 }
 /* Main Content */
 main {
@@ -194,12 +195,14 @@ footer {
 
 button {
   background-color: rgba(0, 0, 0, 0.5);
-  color: var(--secondary-color);
+  color: var(--white-color);
   border: none;
   border-radius: 50%;
-  padding: 10px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   z-index: 10;
+  margin: 10px 0;
 }
 
 /* Mobile Compatibility */
@@ -231,7 +234,7 @@ button {
 }
 .carousel-button:hover {
   background-color: rgba(0, 0, 0, 0.5);
-  color: var(--primary-color);
+  color: var(--white-color);
   transform: scale(1.1);
   transition: 2ms;
 }
@@ -508,4 +511,13 @@ a.button:hover {
 .subpages {
   max-width: 800px;
   margin: auto;
+}
+.content-text ul {
+  list-style-type: disc; /* Ensures proper bullet points */
+  padding-left: 20px; /* Indent bullets inside box */
+  margin: 0; /* Remove unwanted extra spacing */
+}
+
+.content-text li {
+  margin-bottom: 5px; /* Space between list items */
 }
