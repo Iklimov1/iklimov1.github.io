@@ -1,112 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <!-- <a target="_blank" href="https://icons8.com/icon/8808/linkedin">LinkedIn</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "kaVWzBdKB3-5_7e1Z",
+        });
+      })();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Me</title>
-  <link rel="stylesheet" href="style.css" />
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
-  <!-- <a target="_blank" href="https://icons8.com/icon/8808/linkedin">LinkedIn</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
-  <script type="text/javascript">
-    (function () {
-      emailjs.init({
-        publicKey: "kaVWzBdKB3-5_7e1Z",
-      });
-    })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-</head>
+  <body>
+    <header class="main-header">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-  <header class="main-header">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main class="subpages">
+      <section id="contact" x-data="contactForm()">
+        <h2 class="contact-title">Contact Me</h2>
 
-  <main class="subpages">
-    <section id="contact" x-data="contactForm()">
-      <h2 class="contact-title">Contact Me</h2>
+        <div class="contact-form-container">
+          <p x-show="submitted">
+            Thank you for your message! I'll get back to you soon.
+          </p>
 
+          <!-- Contact Form -->
+          <form @submit.prevent="handleSubmit" class="contact-form">
+            <h3 class="message">
+              Feel free to contact me using the form below
+            </h3>
+            <div>
+              <label for="from_name">Full Name:</label>
+              <input
+                type="text"
+                id="from_name"
+                name="from_name"
+                x-model="formData.from_name"
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                x-model="formData.email"
+                required
+              />
+            </div>
+            <div>
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                x-model="formData.message"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">
+              <img src="images/Logos/paper-plane.png" alt="Send" class="icon" />
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-      <div class="contact-form-container">
-        <p x-show="submitted">Thank you for your message! I'll get back to you soon.</p>
+    <script>
+      function contactForm() {
+        return {
+          formData: {
+            from_name: "",
+            email: "",
+            message: "",
+          },
+          submitted: false,
 
-        <!-- Contact Form -->
-        <form @submit.prevent="handleSubmit" class="contact-form">
-          <h3 class="message">Send me a message</h3>
-          <div>
-            <label for="from_name">Full Name:</label>
-            <input type="text" id="from_name" name="from_name" x-model="formData.from_name" required />
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" x-model="formData.email" required />
-          </div>
-          <div>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" x-model="formData.message" required></textarea>
-          </div>
-          <button type="submit">
-            <img src="images/Logos/paper-plane.png" alt="Send" class="icon" />
-            Send
-          </button>
-        </form>
-      </div>
-    </section>
-  </main>
+          handleSubmit() {
+            const serviceID = "service_yyplvps";
+            const templateID = "template_8wltsip";
+            const userID = "kaVWzBdKB3-5_7e1Z";
 
-  <script>
-    function contactForm() {
-      return {
-        formData: {
-          from_name: "",
-          email: "",
-          message: "",
-        },
-        submitted: false,
+            emailjs
+              .send(serviceID, templateID, this.formData, userID)
+              .then(() => {
+                this.submitted = true;
+                console.log("Email sent successfully!");
+              })
+              .catch((error) => {
+                console.error("Failed to send email:", error);
+              });
+          },
+        };
+      }
+    </script>
+    <footer>
+      <section id="contact" class="contact-subtitle">
+        <a href="https://www.linkedin.com/in/inna-visotskaya/">
+          <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" />
+          LinkedIn
+        </a>
+        <a href="https://github.com/Iklimov1">
+          <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
+        </a>
+        <a href="mailto:Klimova.inna7@gmail.com">
+          <img src="images/Logos/mail.png" alt="Email" class="icon" />
+          Klimova.inna7@gmail.com
+        </a>
+        <a href="documents/Tech_Resume_2025.pdf" target="_blank">
+          <img src="images/Logos/resume.png" alt="Resume" class="icon" /> Resume
+        </a>
+      </section>
 
-        handleSubmit() {
-          const serviceID = "service_yyplvps";
-          const templateID = "template_8wltsip";
-          const userID = "kaVWzBdKB3-5_7e1Z";
-
-          emailjs.send(serviceID, templateID, this.formData, userID)
-            .then(() => {
-              this.submitted = true;
-              console.log("Email sent successfully!");
-            })
-            .catch((error) => {
-              console.error("Failed to send email:", error);
-            });
-        }
-      };
-    }
-  </script>
-  <footer>
-    <section id="contact" class="contact-subtitle">
-      <a href="https://www.linkedin.com/in/inna-visotskaya/">
-        <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" /> LinkedIn
-      </a>
-      <a href="https://github.com/Iklimov1">
-        <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
-      </a>
-      <a href="mailto:Klimova.inna7@gmail.com">
-        <img src="images/Logos/mail.png" alt="Email" class="icon" /> Klimova.inna7@gmail.com
-      </a>
-    </section>
-
-    <p>&copy; 2025 Inna Visotskaya</p>
-  </footer>
-</body>
-
+      <p>&copy; 2025 Inna Visotskaya</p>
+    </footer>
+  </body>
 </html>

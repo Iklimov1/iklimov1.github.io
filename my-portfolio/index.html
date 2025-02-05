@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inna's Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inna's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
-</head>
+  <body>
+    <!-- Header Section -->
+    <header class="main-header">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-  <!-- Header Section -->
-  <header class="main-header">
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Main Content Section -->
+    <main>
+      <!-- Home Section -->
+      <section id="home" class="home-intro">
+        <div class="intro-content">
+          <h1>Hi, I'm Inna</h1>
+          <p>
+            I'm a software engineer who blends creativity and code to build
+            elegant solutions.
+          </p>
+          <p>Innovative, passionate, and always learning...</p>
+        </div>
+        <div class="artistic-background"></div>
+      </section>
 
-  <!-- Main Content Section -->
-  <main>
-    <!-- Home Section -->
-    <section id="home" class="home-intro">
-      <div class="intro-content">
-        <h1>Hi, I'm Inna</h1>
-        <p>I'm a software engineer who blends creativity and code to build elegant solutions.</p>
-        <p>Innovative, passionate, and always learning...</p>
-      </div>
-      <div class="artistic-background">
-      </div>
-    </section>
+      <!-- Interactive Portfolio Preview (e.g., Projects or Work Preview) -->
+      <section id="projects-preview">
+        <h2><a href="projects.html">Explore My Work</a></h2>
+        <div class="project-carousel"></div>
+      </section>
+    </main>
 
-    <!-- Interactive Portfolio Preview (e.g., Projects or Work Preview) -->
-    <section id="projects-preview">
-      <h2><a href="projects.html">Explore My Work</a></h2>
-      <div class="project-carousel">
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer Section -->
-  <footer>
-    <section id="contact" class="contact-subtitle">
-      <a href="https://www.linkedin.com/in/inna-visotskaya/">
-        <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" /> LinkedIn
-      </a>
-      <a href="https://github.com/Iklimov1">
-        <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
-      </a>
-      <a href="mailto:Klimova.inna7@gmail.com">
-        <img src="images/Logos/mail.png" alt="Email" class="icon" /> Klimova.inna7@gmail.com
-      </a>
-    </section>
-    <p>&copy; 2025 Inna Visotskaya</p>
-  </footer>
-</body>
-
+    <!-- Footer Section -->
+    <footer>
+      <section id="contact" class="contact-subtitle">
+        <a href="https://www.linkedin.com/in/inna-visotskaya/">
+          <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" />
+          LinkedIn
+        </a>
+        <a href="https://github.com/Iklimov1">
+          <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
+        </a>
+        <a href="mailto:Klimova.inna7@gmail.com">
+          <img src="images/Logos/mail.png" alt="Email" class="icon" />
+          Klimova.inna7@gmail.com
+        </a>
+        <a href="documents/Tech_Resume_2025.pdf" target="_blank">
+          <img src="images/Logos/resume.png" alt="Resume" class="icon" /> Resume
+        </a>
+      </section>
+      <p>&copy; 2025 Inna Visotskaya</p>
+    </footer>
+  </body>
 </html>

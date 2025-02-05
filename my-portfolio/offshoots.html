@@ -25,7 +25,9 @@
 
     <main class="subpages">
       <section class="project-details" x-data="carouselData()">
-        <h2>Offshoots</h2>
+        <div class="project-title">
+          <h2>Offshoots</h2>
+        </div>
         <p>
           Offshoots is a dynamic online marketplace for plant cuttings. The
           platform allows users to browse and purchase various plant cuttings
@@ -72,7 +74,16 @@
                 <li>Intuitive interface for browsing plant cuttings</li>
                 <li>Search and filter functionality for easy navigation</li>
                 <li>Detailed care instructions for each plant</li>
-                <li>Mobile-responsive design for accessibility</li>
+                <li>
+                  User registration, password salting and hashing for security
+                </li>
+                <li>
+                  User's can view bids on their plants and place bids on other
+                  user's items
+                </li>
+                <li>
+                  Real-time sorting of newly added items, organized by price
+                </li>
               </ul>
             </div>
           </div>
@@ -114,6 +125,9 @@
           <img src="images/Logos/mail.png" alt="Email" class="icon" />
           Klimova.inna7@gmail.com
         </a>
+        <a href="documents/Tech_Resume_2025.pdf" target="_blank">
+          <img src="images/Logos/resume.png" alt="Resume" class="icon" /> Resume
+        </a>
       </section>
       <p>&copy; 2025 Inna Visotskaya</p>
     </footer>
@@ -123,8 +137,8 @@
         return {
           currentIndex: 0,
           images: [
-            "images/Offshoots/homepage.png",
             "images/Offshoots/all_plants.png",
+            "images/Offshoots/homepage.png",
             "images/Offshoots/plant.png",
             "images/Offshoots/mylist.png",
             "images/Offshoots/plantinfo.png",

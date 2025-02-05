@@ -79,11 +79,15 @@ main {
 }
 .project-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-top: 20px;
 }
 .project-card {
   background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 10px;
@@ -99,46 +103,7 @@ main {
   height: auto;
   border-radius: 5px;
 }
-/* 
-Modal Styles .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: var(--white-color);
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 700px;
-  position: relative;
-  overflow: hidden;
-}
-.modal-header {
-  display: flex;
-  justify-content: center;
-}
-.modal-header button {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-.modal-header h3 {
-  font-size: 3em;
-}
-.modal-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-} */
 
-/* Footer  NEED to decide on better color combo*/
 footer {
   text-align: center;
   padding: 10px;
@@ -146,9 +111,14 @@ footer {
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
   color: var(--text-color);
 }
+footer a:hover {
+  color: var(--secondary-color);
+}
 /*Home page!*/
-.home-intro {
-  font-size: xx-large; /* figur eout what this is supposed to be in terms of titles??*/
+.home-intro h3 {
+  font-size: var(
+    --subtitle
+  ); /* figur eout what this is supposed to be in terms of titles??*/
 }
 /*About me page!*/
 .intro img {
@@ -308,6 +278,7 @@ button {
   color: var(--white-color);
   font-size: var(--body);
   cursor: pointer;
+  height: 50px;
 }
 
 .contact-form button:hover {
@@ -335,8 +306,10 @@ button {
   width: 25px;
   height: 25px;
   vertical-align: middle;
-  margin-right: 5px;
   color: var(--white-color);
+}
+.contact-subtitle a {
+  margin-right: 10px;
 }
 header {
   position: sticky;
@@ -375,7 +348,7 @@ nav ul li {
 }
 
 .home-intro h1 {
-  font-size: var(--subtitle);
+  font-size: var(--title);
   font-family: var(--secondary-font);
   color: var(--white-color);
 }
@@ -408,15 +381,19 @@ nav ul li {
 }
 .project-details {
   color: var(--white-color);
+  font-size: var(--body);
 }
-.project-details h2 {
+.project-title {
+  display: flex;
+  justify-content: center;
   align-items: center;
   color: var(--white-color);
+  font-family: var(--secondary-font);
 }
 /* Interactive Elements */
 
 .home-intro p {
-  font-size: 1.5rem;
+  font-size: var(--body);
   color: var(--background-color);
   margin-top: 20px;
 }
@@ -435,7 +412,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: var(--secondary-color);
+  /* color: var(--secondary-color); */
   text-decoration: underline;
 }
 
