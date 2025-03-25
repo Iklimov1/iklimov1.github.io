@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boggle</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js"
+      defer
+    ></script>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="subpages">
+      <section class="project-details" x-data="carouselData()">
+        <div class="project-title">
+          <h2>Boggle</h2>
+        </div>
+        <p>
+          Boggle is a web-based version of the classic word game. The game
+          generates a 4x4 grid of random letters, and players have 90 seconds to
+          find as many words as possible. The game shuffles the board and blurs
+          the letters when the timer runs out.
+        </p>
+
+        <!-- Carousel -->
+        <div class="carousel">
+          <div class="carousel-wrapper">
+            <template x-for="(image, index) in images" :key="index">
+              <div class="carousel-slide" x-show="index === currentIndex">
+                <img :src="image" :alt="'Slide ' + (index + 1)" />
+              </div>
+            </template>
+          </div>
+        </div>
+        <!-- Carousel Controls and Dots -->
+        <div class="carousel-controls">
+          <button @click="prevSlide" class="carousel-button prev">
+            &#10094;
+          </button>
+
+          <!-- Dots in the middle of the controls -->
+          <div class="carousel-dots">
+            <template x-for="(image, index) in images" :key="index">
+              <span
+                class="dot"
+                :class="{'active': currentIndex === index}"
+                @click="currentIndex = index"
+              ></span>
+            </template>
+          </div>
+
+          <button @click="nextSlide" class="carousel-button next">
+            &#10095;
+          </button>
+        </div>
+
+        <div class="grid">
+          <div class="column">
+            <div class="content-text text-container">
+              <h3>Features</h3>
+              <ul>
+                <li>Randomly generated 4x4 grid of letters</li>
+                <li>90-second timer</li>
+                <li>Shuffle and blur effect when the timer runs out</li>
+                <li>Reset option</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="column">
+            <div class="content-text">
+              <h3>Project Highlights</h3>
+              <p>
+                Boggle was a fun project to build because it combined my love
+                for word games with my passion for web development. I enjoyed
+                implementing the timer and shuffle features to create an
+                interactive and engaging game experience.
+              </p>
+            </div>
+            <div class="content-text text-container">
+              <h3>Technologies Used</h3>
+              <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React for interactive components</li>
+                <li>CSS for styling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section id="contact" class="contact-subtitle">
+        <a href="https://www.linkedin.com/in/inna-visotskaya/">
+          <img src="images/Logos/linkedin.png" alt="LinkedIn" class="icon" />
+          LinkedIn
+        </a>
+        <a href="https://github.com/Iklimov1">
+          <img src="images/Logos/github.png" alt="GitHub" class="icon" /> GitHub
+        </a>
+        <a href="mailto:Klimova.inna7@gmail.com">
+          <img src="images/Logos/mail.png" alt="Email" class="icon" />
+          Klimova.inna7@gmail.com
+        </a>
+        <a href="documents/Tech_Resume_2025.pdf" target="_blank">
+          <img src="images/Logos/resume.png" alt="Resume" class="icon" /> Resume
+        </a>
+      </section>
+      <p>&copy; 2025 Inna Visotskaya</p>
+    </footer>
+
+    <script>
+      function carouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "images/Boggle/Home.png",
+            "images/Boggle/GameStart.png",
+            "images/Boggle/GameOver.png",
+            "images/Boggle/RoughDraft.png",
+          ],
+          nextSlide() {
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+          },
+          prevSlide() {
+            this.currentIndex =
+              (this.currentIndex - 1 + this.images.length) % this.images.length;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

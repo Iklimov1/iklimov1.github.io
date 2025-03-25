@@ -83,7 +83,7 @@ main {
   padding-top: 20px;
 }
 .project-card {
-  background: transparent;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,9 +91,10 @@ main {
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 10px;
-  width: 45%;
+  /* width: 45%; */
   cursor: pointer;
   transition: transform 0.2s;
+  margin: 5px;
 }
 .project-card:hover {
   transform: scale(1.05);
@@ -116,10 +117,9 @@ footer a:hover {
 }
 /*Home page!*/
 .home-intro h3 {
-  font-size: var(
-    --subtitle
-  ); /* figur eout what this is supposed to be in terms of titles??*/
+  font-size: var(--subtitle);
 }
+
 /*About me page!*/
 .intro img {
   width: 60%;
@@ -137,10 +137,10 @@ footer a:hover {
 .carousel {
   position: relative;
   width: 100%;
-  height: 710px;
+  height: 500px;
   margin: auto;
   overflow: hidden;
-  border: 1px solid var(--border-color);
+  /* border: 1px solid var(--border-color); */
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -151,12 +151,16 @@ footer a:hover {
   display: flex;
   transition: transform 0.5s ease;
   position: relative;
+  height: 100%;
 }
 
 .carousel-slide img {
-  /* display: none; */
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
 }
 
 .visible img {
