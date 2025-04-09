@@ -80,6 +80,7 @@ main {
 .project-cards {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap; /* Allows wrapping when space is limited */
   padding-top: 20px;
 }
 .project-card {
@@ -91,11 +92,20 @@ main {
   border: 2px solid var(--border-color);
   border-radius: 5px;
   padding: 10px;
-  /* width: 45%; */
+  flex: 1 1 calc(33.333% - 10px); /* Three cards per row with spacing */
+  max-width: calc(33.333% - 10px);
   cursor: pointer;
   transition: transform 0.2s;
   margin: 5px;
 }
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 calc(100% - 10px); /* Stack cards in mobile view */
+    max-width: calc(100% - 10px);
+  }
+}
+
 .project-card:hover {
   transform: scale(1.05);
 }
@@ -326,6 +336,16 @@ nav ul {
   justify-content: center;
   gap: 30px;
   list-style-type: none;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    gap: 15px; /* Reduce gap for smaller screens */
+    align-items: center; /* Center items */
+  }
 }
 
 nav ul li a {
