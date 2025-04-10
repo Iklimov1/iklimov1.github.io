@@ -103,6 +103,7 @@ main {
   .project-card {
     flex: 1 1 calc(100% - 10px); /* Stack cards in mobile view */
     max-width: calc(100% - 10px);
+    min-width: 300px; /* Prevent excessive shrinkage */
   }
 }
 
