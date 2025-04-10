@@ -331,7 +331,22 @@ header {
   top: 0;
   padding: 20px 40px;
 }
-
+.navbar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); */
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 60px;
+}
 nav ul {
   display: flex;
   justify-content: center;
@@ -342,10 +357,32 @@ nav ul {
 }
 
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    gap: 15px; /* Reduce gap for smaller screens */
-    align-items: center; /* Center items */
+  .hamburger {
+    display: block; /* Show hamburger */
+  }
+  .navbar {
+    justify-content: right;
+    position: relative;
+  }
+  .nav-links {
+    display: none; /* Hide links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: linear-gradient(
+      120deg,
+      rgba(106, 127, 61, 0.8),
+      rgba(129, 192, 177, 0.5)
+    );
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
   }
 }
 

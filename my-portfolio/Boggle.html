@@ -13,8 +13,9 @@
 
   <body>
     <header class="main-header">
-      <nav>
-        <ul>
+      <nav class="navbar">
+        <div class="hamburger" id="hamburger">&#9776;</div>
+        <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Me</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -142,6 +143,19 @@
           },
         };
       }
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Optional: Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("active");
+        }
+      });
     </script>
   </body>
 </html>
