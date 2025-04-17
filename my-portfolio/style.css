@@ -149,7 +149,7 @@ footer a:hover {
   position: relative;
   width: 100%;
   height: 500px;
-  margin: auto;
+  margin: 10 auto;
   overflow: hidden;
   /* border: 1px solid var(--border-color); */
   border-radius: 10px;
@@ -163,15 +163,17 @@ footer a:hover {
   transition: transform 0.5s ease;
   position: relative;
   height: 100%;
+  align-items: center;
 }
 
 .carousel-slide img {
   max-width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 95%;
+  /* object-fit: contain; */
   display: block;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 20px;
+  overflow: hidden; /* Ensures the border-radius is applied properly */
 }
 
 .visible img {
@@ -405,8 +407,9 @@ nav ul li {
   padding: 100px 20px;
 
   border-radius: 15px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); */
   color: var(--white-color);
+  flex-direction: column;
 }
 
 .home-intro h1 {
@@ -460,7 +463,7 @@ nav ul li {
   margin-top: 20px;
 }
 /* Shadow when hover */
-.home-intro:hover,
+
 .project-carousel:hover {
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
 }
