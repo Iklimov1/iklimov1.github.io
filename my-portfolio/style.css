@@ -7,7 +7,12 @@
 :root {
   --primary-color: #6a7f3d; /* Rich green */
   --secondary-color: #034c3c; /* Deep moss green */
-  --background-color: #e6fbe8; /* Soft light green */
+  --background-color: #eaf4e9; /* Soft light green */
+  --gradient-background: linear-gradient(
+    120deg,
+    rgba(106, 127, 61, 0.8),
+    rgba(129, 192, 177, 0.8)
+  );
   --text-color: #333;
   --white-color: #fff;
   --border-color: #ccc;
@@ -23,34 +28,34 @@ html,
 body {
   min-height: 100vh;
   font-family: var(--primary-font);
-  background: linear-gradient(
-    120deg,
-    var(--primary-color),
-    var(--highlight-color)
-  );
   background-size: 100% 100%;
-  color: var(--white-color);
   font-size: var(--body);
   animation: gradientAnimation 5s ease infinite;
   line-height: 1.6;
-  background-color: var(--background-color);
-  /* padding: 0 20px; */
   display: flex;
   flex-direction: column;
 }
 
+.front-page {
+  background-color: var(--background-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-image: var(--gradient-background);
+}
+
 /* Header */
 header {
-  background-color: var(--primary-color);
   color: var(--background-color);
   padding: 20px;
 }
 .main-header {
   background: linear-gradient(
     120deg,
-    rgba(106, 127, 61, 0.5),
-    rgba(129, 192, 177, 0.5)
-  ); /* Sheer gradient background */
+    rgba(106, 127, 61, 0.8),
+    rgba(129, 192, 177, 0.8)
+  );
   backdrop-filter: blur(10px); /* Blur effect */
   margin-bottom: 20px;
 }
@@ -76,6 +81,11 @@ main {
   align-items: center;
   margin-bottom: 10px;
   font-size: var(--subtitle);
+  background-image: var(--gradient-background);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 .project-cards {
   display: flex;
@@ -84,14 +94,14 @@ main {
   padding-top: 20px;
 }
 .project-card {
-  background-color: transparent;
+  background: var(--gradient-background);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 2px solid var(--border-color);
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   flex: 1 1 calc(33.333% - 10px); /* Three cards per row with spacing */
   max-width: calc(33.333% - 10px);
   cursor: pointer;
@@ -119,9 +129,11 @@ main {
 footer {
   text-align: center;
   padding: 10px;
+  margin-top: 20px;
   background-color: transparent;
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
   color: var(--text-color);
+  background: var(--gradient-background);
 }
 footer a:hover {
   color: var(--secondary-color);
@@ -181,8 +193,6 @@ footer a:hover {
 }
 
 button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: var(--white-color);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -218,12 +228,23 @@ button {
   border: none;
   font-size: var(--button);
   cursor: pointer;
+
+  background-image: var(--gradient-background);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
 }
+
 .carousel-button:hover {
   background-color: rgba(0, 0, 0, 0.5);
-  color: var(--white-color);
+  color: var(--white-color); /* Reverts to normal text color */
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  text-fill-color: initial;
   transform: scale(1.1);
-  transition: 2ms;
+  transition: 0.2s ease;
 }
 
 .carousel-dots {
@@ -253,11 +274,7 @@ button {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   color: var(--white-color);
-  background: linear-gradient(
-    120deg,
-    var(--primary-color),
-    var(--highlight-color)
-  );
+  background: var(--gradient-background);
 }
 
 /* .contact-form h3 {
@@ -291,15 +308,15 @@ button {
   border: none;
   border-radius: 5px;
   background-color: transparent;
+  color: var(--background-color);
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
-  color: var(--white-color);
   font-size: var(--body);
   cursor: pointer;
   height: 50px;
 }
-
 .contact-form button:hover {
-  background-color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
 }
 .message {
   color: var(--white-color);
@@ -372,11 +389,7 @@ nav ul {
     position: absolute;
     top: 60px;
     right: 20px;
-    background: linear-gradient(
-      120deg,
-      rgba(106, 127, 61, 0.8),
-      rgba(129, 192, 177, 0.5)
-    );
+    background: var(--gradient-background);
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -444,8 +457,15 @@ nav ul li {
   gap: 30px;
   overflow-x: scroll;
 }
+.project-description {
+  background-image: var(--gradient-background);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-size: var(--body);
+}
 .project-details {
-  color: var(--white-color);
   font-size: var(--body);
 }
 .project-title {
@@ -504,14 +524,10 @@ a.button:hover {
 
 .content-text {
   padding: 10px;
-  background: linear-gradient(
-    120deg,
-    var(--primary-color),
-    var(--highlight-color)
-  );
+  background: var(--gradient-background);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  color: var(--white-color);
+  color: var(--background-color);
 }
 
 .content-image img {

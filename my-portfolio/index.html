@@ -26,7 +26,7 @@
     </header>
 
     <!-- Main Content Section -->
-    <main>
+    <main class="front-page">
       <!-- Home Section -->
       <section id="home" class="home-intro">
         <div class="intro-content">
@@ -68,19 +68,19 @@
       <p>&copy; 2025 Inna Visotskaya</p>
     </footer>
   </body>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Optional: Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove("active");
+      }
+    });
+  </script>
 </html>
-<script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
-
-  // Optional: Close dropdown when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-      navLinks.classList.remove("active");
-    }
-  });
-</script>

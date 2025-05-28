@@ -41,7 +41,7 @@
 
     <main class="subpages">
       <section id="contact" x-data="contactForm()">
-        <h2 class="contact-title">Contact Me</h2>
+        <h2 class="contact-title front-page">Contact Me</h2>
 
         <div class="contact-form-container">
           <p x-show="submitted">
@@ -50,9 +50,7 @@
 
           <!-- Contact Form -->
           <form @submit.prevent="handleSubmit" class="contact-form">
-            <h3 class="message">
-              Feel free to contact me using the form below
-            </h3>
+            <h3 class="message">Feel free to contact me!</h3>
             <div>
               <label for="from_name">Full Name:</label>
               <input
