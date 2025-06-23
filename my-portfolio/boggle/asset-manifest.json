@@ -9,8 +9,5 @@
     "main.80580f3f.js.map": "/my-portfolio/boggle/static/js/main.80580f3f.js.map",
     "453.6aaa7ded.chunk.js.map": "/my-portfolio/boggle/static/js/453.6aaa7ded.chunk.js.map"
   },
-  "entrypoints": [
-    "static/css/main.bc1ea654.css",
-    "static/js/main.80580f3f.js"
-  ]
+  "entrypoints": ["static/css/main.bc1ea654.css", "static/js/main.80580f3f.js"]
 }
