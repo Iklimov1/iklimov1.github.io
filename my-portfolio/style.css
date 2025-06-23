@@ -579,3 +579,8 @@ a.button:hover {
 .content-text li {
   margin-bottom: 5px; /* Space between list items */
 }
+
+p a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
