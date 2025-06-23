@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/boggle/static/css/main.bc1ea654.css",
+    "main.js": "/my-portfolio/boggle/static/js/main.80580f3f.js",
+    "static/js/453.6aaa7ded.chunk.js": "/my-portfolio/boggle/static/js/453.6aaa7ded.chunk.js",
+    "static/media/wood-pattern.png": "/my-portfolio/boggle/static/media/wood-pattern.7723af6206c4fed53548.png",
+    "index.html": "/my-portfolio/boggle/index.html",
+    "main.bc1ea654.css.map": "/my-portfolio/boggle/static/css/main.bc1ea654.css.map",
+    "main.80580f3f.js.map": "/my-portfolio/boggle/static/js/main.80580f3f.js.map",
+    "453.6aaa7ded.chunk.js.map": "/my-portfolio/boggle/static/js/453.6aaa7ded.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc1ea654.css",
+    "static/js/main.80580f3f.js"
+  ]
+}
